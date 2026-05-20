@@ -94,34 +94,55 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
 		var template = pokemon;
 		while (template.prevo) template = Dex.species.get(template.prevo);
 		if (template.evos) {
-			buf += '<table class="evos"><tr><td>';
-			var evos = [template];
-			while (evos) {
-				if (evos[0] === 'dustox') evos = ['beautifly','dustox'];
-				for (var i=0; i<evos.length; i++) {
-					template = Dex.species.get(evos[i]);
-					if (i <= 0) {
-						if (!evos[0].exists) {
-							if (evos[1] === 'dustox') {
-								buf += '</td><td class="arrow"><span>&rarr;<br />&rarr;</span></td><td>';
-							} else if (template.prevo) {
-								buf += '</td><td class="arrow"><span><abbr title="' + this.getEvoMethod(template) + '">&rarr;</abbr></span></td><td>';
-							} else {
-								buf += '</td><td class="arrow"><span>&rarr;</span></td><td>';
-							}
-						}
-					}
-					var name = (template.forme ? template.baseSpecies+'<small>-'+template.forme+'</small>' : template.name);
-					name = '<span class="picon" style="'+Dex.getPokemonIcon(template)+'"></span>'+name;
-					if (template === pokemon) {
-						buf += '<div><strong>'+name+'</strong></div>';
-					} else {
-						buf += '<div><a href="/pokemon/'+template.id+'" data-target="replace">'+name+'</a></div>';
+			var stages = [[template]];
+			while (stages.length < 8) {
+				var prevStage = stages[stages.length - 1];
+				var nextStage = [];
+				var nextSeen = {};
+				for (var i = 0; i < prevStage.length; i++) {
+					var stageTemplate = prevStage[i];
+					if (!stageTemplate.evos) continue;
+					for (var j = 0; j < stageTemplate.evos.length; j++) {
+						var evoTemplate = Dex.species.get(stageTemplate.evos[j]);
+						if (!evoTemplate || !evoTemplate.exists || nextSeen[evoTemplate.id]) continue;
+						nextSeen[evoTemplate.id] = 1;
+						nextStage.push(evoTemplate);
 					}
 				}
-				evos = template.evos;
+				if (!nextStage.length) break;
+				stages.push(nextStage);
 			}
-			buf += '</td></tr></table>';
+
+			buf += '<table class="evos"><tr>';
+			for (var stageIndex = 0; stageIndex < stages.length; stageIndex++) {
+				if (stageIndex > 0) {
+					var arrowTitle = '';
+					for (var i = 0; i < stages[stageIndex].length; i++) {
+						if (stages[stageIndex][i].prevo) {
+							arrowTitle = this.getEvoMethod(stages[stageIndex][i]);
+							break;
+						}
+					}
+					if (arrowTitle) {
+						buf += '<td class="arrow"><span><abbr title="' + Dex.escapeHTML(arrowTitle) + '">&rarr;</abbr></span></td>';
+					} else {
+						buf += '<td class="arrow"><span>&rarr;</span></td>';
+					}
+				}
+				buf += '<td>';
+				for (var i = 0; i < stages[stageIndex].length; i++) {
+					var stageMon = stages[stageIndex][i];
+					var name = (stageMon.forme ? stageMon.baseSpecies+'<small>-'+stageMon.forme+'</small>' : stageMon.name);
+					name = '<span class="picon" style="'+Dex.getPokemonIcon(stageMon)+'"></span>'+name;
+					if (stageMon.id === pokemon.id) {
+						buf += '<div><strong>'+name+'</strong></div>';
+					} else {
+						buf += '<div><a href="/pokemon/'+stageMon.id+'" data-target="replace">'+name+'</a></div>';
+					}
+				}
+				buf += '</td>';
+			}
+			buf += '</tr></table>';
 			if (pokemon.prevo) {
 				buf += '<div><small>Evolves from ' + Dex.species.get(pokemon.prevo).name + ' (' + this.getEvoMethod(pokemon) + ')</small></div>';
 			}

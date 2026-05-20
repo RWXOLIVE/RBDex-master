@@ -2315,7 +2315,7 @@ exports.BattleMovedex = {
         basePower: 0,
         category: "Status",
         name: "Confide",
-        pp: 20,
+        pp: 10,
         priority: 0,
         flags: {
             reflectable: 1,
@@ -6740,7 +6740,7 @@ exports.BattleMovedex = {
     },
     headsmash: {
         num: 457,
-        accuracy: 80,
+        accuracy: 85,
         basePower: 150,
         category: "Physical",
         name: "Head Smash",
@@ -7652,7 +7652,7 @@ exports.BattleMovedex = {
     },
     hydropump: {
         num: 56,
-        accuracy: 80,
+        accuracy: 85,
         basePower: 110,
         category: "Special",
         name: "Hydro Pump",

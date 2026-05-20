@@ -503,7 +503,7 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
 					break;
 				case 'd': // tm/hm
 					if (lastChanged) buf += '<li class="resultheader"><h3>TM/HM</h3></li>';
-					desc = '<span class="itemicon" style="margin-top:-3px;'+Dex.getItemIcon({spritenum:508})+'"></span>';
+					desc = '<img src="' + Dex.resourcePrefix + 'sprites/itemicons/tm-normal.png" style="margin-top:-3px;opacity:.7" width="24" height="24" alt="M" />';
 					break;
 				case 'e': // tutor
 					if (lastChanged) buf += '<li class="resultheader"><h3>Tutor</h3></li>';

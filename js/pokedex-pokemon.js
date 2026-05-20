@@ -258,11 +258,12 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
 		if (pastGenChanges) buf += '</dl>';
 
 		// learnset
-		if (window.BattleLearnsets && BattleLearnsets[id] && BattleLearnsets[id].eventData) {
-			buf += '<ul class="tabbar"><li><button class="button nav-first cur" value="move">Moves</button></li><li><button class="button" value="details">Flavor</button></li><li><button class="button nav-last" value="events">Events</button></li></ul>';
-		} else {
-			buf += '<ul class="tabbar"><li><button class="button nav-first cur" value="move">Moves</button></li><li><button class="button nav-last" value="details">Flavor</button></li></ul>';
+		var hasEvents = window.BattleLearnsets && BattleLearnsets[id] && BattleLearnsets[id].eventData;
+		buf += '<ul class="tabbar"><li><button class="button nav-first cur" value="move">Moves</button></li><li><button class="button" value="details">Flavor</button></li><li><button class="button' + (!hasEvents ? ' nav-last' : '') + '" value="encounters">Encounters</button></li>';
+		if (hasEvents) {
+			buf += '<li><button class="button nav-last" value="events">Events</button></li>';
 		}
+		buf += '</ul>';
 		buf += '<ul class="utilichart nokbd">';
 		buf += '<li class="resultheader"><h3>Level-up</h3></li>';
 
@@ -364,10 +365,126 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
 		case 'details':
 			this.renderDetails();
 			break;
+		case 'encounters':
+			this.renderEncounters();
+			break;
 		case 'events':
 			this.renderEvents();
 			break;
 		}
+	},
+	getEncounters: function() {
+		var pokemon = Dex.species.get(this.id);
+		var speciesIds = {};
+		speciesIds[this.id] = 1;
+		if (pokemon.baseSpecies) speciesIds[toID(pokemon.baseSpecies)] = 1;
+
+		var entries = {
+			land: {},
+			water: {},
+			fish: {},
+			rock: {}
+		};
+		if (!window.BattleLocationdex) return entries;
+
+		var chanceTable = {
+			land: [20, 10, 10, 10, 10, 10, 10, 5, 5, 5, 4, 1],
+			water: [30, 30, 20, 10, 10],
+			fish: [20, 20, 10, 10, 10, 10, 10, 5, 4, 1],
+			rock: [60, 30, 5, 4, 1]
+		};
+
+		function addEncounter(mode, locid, name, chance) {
+			if (!chance) return;
+			if (!entries[mode][locid]) {
+				entries[mode][locid] = {
+					id: locid,
+					name: name,
+					chance: 0
+				};
+			}
+			entries[mode][locid].chance += chance;
+		}
+
+		for (var locid in BattleLocationdex) {
+			var location = BattleLocationdex[locid];
+			var landChance = 0;
+			for (var i = 0; i < chanceTable.land.length; i++) {
+				var landMon = location['landslot' + (i + 1)];
+				if (landMon && speciesIds[toID(landMon)]) {
+					landChance += chanceTable.land[i];
+				}
+			}
+			addEncounter('land', locid, location.name, landChance);
+
+			var waterChance = 0;
+			for (var i = 0; i < chanceTable.water.length; i++) {
+				var waterMon = location['waterslot' + (i + 1)];
+				if (waterMon && speciesIds[toID(waterMon)]) {
+					waterChance += chanceTable.water[i];
+				}
+			}
+			addEncounter('water', locid, location.name, waterChance);
+
+			var fishChance = 0;
+			for (var i = 0; i < chanceTable.fish.length; i++) {
+				var fishMon = location['fishslot' + (i + 1)];
+				if (fishMon && speciesIds[toID(fishMon)]) {
+					fishChance += chanceTable.fish[i];
+				}
+			}
+			addEncounter('fish', locid, location.name, fishChance);
+
+			var rockChance = 0;
+			for (var i = 0; i < chanceTable.rock.length; i++) {
+				var rockMon = location['rockslot' + (i + 1)];
+				if (rockMon && speciesIds[toID(rockMon)]) {
+					rockChance += chanceTable.rock[i];
+				}
+			}
+			addEncounter('rock', locid, location.name, rockChance);
+		}
+
+		return entries;
+	},
+	renderEncounters: function() {
+		var buf = '';
+		var encounters = this.getEncounters();
+		var groups = [
+			{key: 'land', title: 'Land'},
+			{key: 'water', title: 'Surfing'},
+			{key: 'fish', title: 'Fishing'},
+			{key: 'rock', title: 'Rock Smash'}
+		];
+		var hasAny = false;
+
+		for (var i = 0; i < groups.length; i++) {
+			var group = groups[i];
+			var rows = [];
+			for (var locid in encounters[group.key]) {
+				rows.push(encounters[group.key][locid]);
+			}
+			if (!rows.length) continue;
+			hasAny = true;
+			rows.sort(function (a, b) {
+				if (b.chance !== a.chance) return b.chance - a.chance;
+				return a.name.localeCompare(b.name);
+			});
+
+			buf += '<li class="resultheader"><h3>' + group.title + '</h3></li>';
+			for (var j = 0; j < rows.length; j++) {
+				var row = rows[j];
+				buf += '<li class="result"><a href="/locations/' + row.id + '" data-target="push">';
+				buf += '<span class="col tagcol shorttagcol">' + row.chance + '%</span> ';
+				buf += '<span class="col itemdesccol">| ' + Dex.escapeHTML(row.name) + '</span>';
+				buf += '</a></li>';
+			}
+		}
+
+		if (!hasAny) {
+			buf += '<li><em>No encounter data available.</em></li>';
+		}
+		this.$('.utilichart').html(buf);
 	},
 	renderFullLearnset: function() {
 		var pokemon = Dex.species.get(this.id);

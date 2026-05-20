@@ -476,7 +476,7 @@ var PokedexPokemonPanel = PokedexResultPanel.extend({
 				var row = rows[j];
 				buf += '<li class="result"><a href="/locations/' + row.id + '" data-target="push">';
 				buf += '<span class="col tagcol shorttagcol">' + row.chance + '%</span> ';
-				buf += '<span class="col itemdesccol" style="font-size:10pt;color:#FFFFFF;padding-top:6px;height:23px;">' + Dex.escapeHTML(row.name) + '</span>';
+				buf += '<span class="col itemdesccol" style="font-size:10pt;color:#FFFFFF;padding-top:6px;padding-left:4px;height:23px;">' + Dex.escapeHTML(row.name) + '</span>';
 				buf += '</a></li>';
 			}
 		}

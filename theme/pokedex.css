@@ -351,6 +351,9 @@ table.evos .arrow abbr {
 .utilichart {
 	margin-bottom: 30px;
 }
+.utilichart .encounternamecol {
+	color: #000000;
+}
 
 .type {
 	display: inline-block;

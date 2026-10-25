@@ -166,7 +166,6 @@ exports.BattleMovedex = {
             protect: 1,
             mirror: 1,
             distance: 1,
-            slicing: 1
         },
         secondary: null,
         target: "any",
@@ -256,7 +255,6 @@ exports.BattleMovedex = {
         flags: {
             protect: 1,
             mirror: 1,
-            slicing: 1,
             wind: 1
         },
         critRatio: 2,
@@ -279,7 +277,6 @@ exports.BattleMovedex = {
             protect: 1,
             mirror: 1,
             distance: 1,
-            slicing: 1
         },
         secondary: {
             chance: 30,
@@ -823,7 +820,7 @@ exports.BattleMovedex = {
             mirror: 1
         },
         secondary: null,
-        target: "normal",
+        target: "allAdjacentFoes",
         type: "Ice",
         contestType: "Beautiful",
         desc: "Power doubles if the user was hit by the target this turn.",
@@ -2762,7 +2759,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         secondary: {
             chance: 10,
@@ -2891,7 +2887,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         secondary: null,
         target: "normal",
@@ -3092,8 +3087,8 @@ exports.BattleMovedex = {
             }
         },
         contestType: "Cool",
-        desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness. If there is a terrain active and this move is successful, the terrain will be cleared.",
-        shortDesc: "-1 evasion; clears terrain and hazards on both sides."
+        desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness..",
+        shortDesc: "-1 evasion; clears hazards on both sides."
     },
     destinybond: {
         num: 194,
@@ -3119,7 +3114,7 @@ exports.BattleMovedex = {
             effect: "redirect"
         },
         contestType: "Clever",
-        desc: "Until the user's next move, if an opposing Pokemon's attack knocks the user out, that Pokemon faints as well, unless the attack was Doom Desire or Future Sight. Fails if the user used this move successfully as its last move, disregarding moves used through the Dancer Ability.",
+        desc: "Until the user's next move, if an opposing Pokemon's attack knocks the user out, that Pokemon faints as well, unless the attack was Doom Desire or Future Sight.",
         shortDesc: "If an opponent knocks out the user, it also faints."
     },
     detect: {
@@ -4136,7 +4131,7 @@ exports.BattleMovedex = {
             }
         },
         contestType: "Clever",
-        desc: "For 5 turns, the terrain becomes Electric Terrain. During the effect, the power of Electric-type attacks made by grounded Pokemon is multiplied by 1.3 and grounded Pokemon cannot fall asleep; Pokemon already asleep do not wake up. Grounded Pokemon cannot become affected by Yawn or fall asleep from its effect. Camouflage transforms the user into an Electric type, Nature Power becomes Thunderbolt, and Secret Power has a 30% chance to cause paralysis. Fails if the current terrain is Electric Terrain.",
+        desc: "For 5 turns, the terrain becomes Electric Terrain. During the effect, the power of Electric-type attacks made by grounded Pokemon is multiplied by 1.5 and grounded Pokemon cannot fall asleep; Pokemon already asleep do not wake up. Grounded Pokemon cannot become affected by Yawn or fall asleep from its effect. Camouflage transforms the user into an Electric type, Nature Power becomes Thunderbolt, and Secret Power has a 30% chance to cause paralysis. Fails if the current terrain is Electric Terrain.",
         shortDesc: "5 turns. Grounded: +Electric power, can't sleep."
     },
     electrify: {
@@ -5827,7 +5822,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         condition: {
             duration: 2
@@ -6286,7 +6280,7 @@ exports.BattleMovedex = {
             }
         },
         contestType: "Beautiful",
-        desc: "For 5 turns, the terrain becomes Grassy Terrain. During the effect, the power of Grass-type attacks used by grounded Pokemon is multiplied by 1.3, the power of Bulldoze, Earthquake, and Magnitude used against grounded Pokemon is multiplied by 0.5, and grounded Pokemon have 1/16 of their maximum HP, rounded down, restored at the end of each turn, including the last turn. Camouflage transforms the user into a Grass type, Nature Power becomes Energy Ball, and Secret Power has a 30% chance to cause sleep. Fails if the current terrain is Grassy Terrain.",
+        desc: "For 5 turns, the terrain becomes Grassy Terrain. During the effect, the power of Grass-type attacks used by grounded Pokemon is multiplied by 1.5, the power of Bulldoze, Earthquake, and Magnitude used against grounded Pokemon is multiplied by 0.5, and grounded Pokemon have 1/16 of their maximum HP, rounded down, restored at the end of each turn, including the last turn. Camouflage transforms the user into a Grass type, Nature Power becomes Energy Ball, and Secret Power has a 30% chance to cause sleep. Fails if the current terrain is Grassy Terrain.",
         shortDesc: "5 turns. Grounded: +Grass power, +1/16 max HP."
     },
     gravapple: {
@@ -8625,7 +8619,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         critRatio: 2,
         secondary: null,
@@ -10468,6 +10461,7 @@ exports.BattleMovedex = {
         pp: 10,
         priority: 0,
         flags: {
+            contact: 1,
             protect: 1,
             mirror: 1
         },
@@ -10588,7 +10582,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         critRatio: 2,
         secondary: null,
@@ -10828,7 +10821,7 @@ exports.BattleMovedex = {
                 }
             }
         },
-        target: "normal",
+        target: "allAdjacentFoes",
         type: "Ghost",
         contestType: "Beautiful",
         desc: "Has a 10% chance to raise the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage.",
@@ -11466,7 +11459,7 @@ exports.BattleMovedex = {
     },
     poltergeist: {
         num: 809,
-        accuracy: 90,
+        accuracy: true,
         basePower: 110,
         category: "Physical",
         name: "Poltergeist",
@@ -11933,7 +11926,7 @@ exports.BattleMovedex = {
             }
         },
         contestType: "Clever",
-        desc: "For 5 turns, the terrain becomes Psychic Terrain. During the effect, the power of Psychic-type attacks made by grounded Pokemon is multiplied by 1.3 and grounded Pokemon cannot be hit by moves with priority greater than 0, unless the target is an ally. Camouflage transforms the user into a Psychic type, Nature Power becomes Psychic, and Secret Power has a 30% chance to lower the target's Speed by 1 stage. Fails if the current terrain is Psychic Terrain.",
+        desc: "For 5 turns, the terrain becomes Psychic Terrain. During the effect, the power of Psychic-type attacks made by grounded Pokemon is multiplied by 1.5 and grounded Pokemon cannot be hit by moves with priority greater than 0, unless the target is an ally. Camouflage transforms the user into a Psychic type, Nature Power becomes Psychic, and Secret Power has a 30% chance to lower the target's Speed by 1 stage. Fails if the current terrain is Psychic Terrain.",
         shortDesc: "5 turns. Grounded: +Psychic power, priority-safe."
     },
     psychoboost: {
@@ -11972,7 +11965,6 @@ exports.BattleMovedex = {
         flags: {
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         critRatio: 2,
         secondary: null,
@@ -12406,7 +12398,6 @@ exports.BattleMovedex = {
         flags: {
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         critRatio: 2,
         secondary: null,
@@ -12428,7 +12419,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         secondary: {
             chance: 50,
@@ -12472,7 +12462,7 @@ exports.BattleMovedex = {
         basePower: 0,
         category: "Status",
         name: "Recover",
-        pp: 5,
+        pp: 10,
         priority: 0,
         flags: {
             snatch: 1,
@@ -13196,7 +13186,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         ignoreEvasion: true,
         ignoreDefensive: true,
@@ -14267,7 +14256,7 @@ exports.BattleMovedex = {
         basePower: 0,
         category: "Status",
         name: "Slack Off",
-        pp: 5,
+        pp: 10,
         priority: 0,
         flags: {
             snatch: 1,
@@ -14317,7 +14306,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         critRatio: 2,
         secondary: null,
@@ -14771,7 +14759,6 @@ exports.BattleMovedex = {
             charge: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1,
             nosleeptalk: 1,
             failinstruct: 1
         },
@@ -18136,7 +18123,6 @@ exports.BattleMovedex = {
             contact: 1,
             protect: 1,
             mirror: 1,
-            slicing: 1
         },
         secondary: null,
         target: "normal",

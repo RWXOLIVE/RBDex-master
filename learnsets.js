@@ -8025,7 +8025,6 @@ exports.BattleLearnsets = {
   },
   medicham: {
      learnset: {
-       zenheadbutt: ["9L1", "9L52"],
        firepunch: ["9L1", "9T"],
        thunderpunch: ["9L1", "9T"],
        icepunch: ["9L1", "9T"],

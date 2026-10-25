@@ -20173,7 +20173,7 @@ exports.BattlePokedex = {
         catchrate: 60,
         color: "Blue",
         prevo: "Tynamo",
-        evoLevel: 22,
+        evoLevel: 20,
         evos: ["Eelektross"],
         eggGroups: ["Amorphous"],
         tier: "1"

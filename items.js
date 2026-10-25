@@ -112,7 +112,7 @@ exports.BattleItems = {
 		},
 		num: 162,
 		gen: 3,
-		desc: "Restores 1/3 max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use."
+		desc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -SpD Nature. Single use."
 	},
 	airballoon: {
 		name: "Air Balloon",
@@ -472,7 +472,7 @@ exports.BattleItems = {
 		num: 558,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Bug-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Bug-type attack will have 1.5x power. Single use."
 	},
 	bugmemory: {
 		name: "Bug Memory",
@@ -823,7 +823,7 @@ exports.BattleItems = {
 		num: 562,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Dark-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Dark-type attack will have 1.5x power. Single use."
 	},
 	darkmemory: {
 		name: "Dark Memory",
@@ -980,7 +980,7 @@ exports.BattleItems = {
 		num: 561,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Dragon-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Dragon-type attack will have 1.5x power. Single use."
 	},
 	dragonmemory: {
 		name: "Dragon Memory",
@@ -1140,7 +1140,7 @@ exports.BattleItems = {
 		num: 550,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Electric-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Electric-type attack will have 1.5x power. Single use."
 	},
 	electricmemory: {
 		name: "Electric Memory",
@@ -1234,7 +1234,7 @@ exports.BattleItems = {
 		num: 715,
 		gen: 6,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Fairy-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Fairy-type attack will have 1.5x power. Single use."
 	},
 	fairymemory: {
 		name: "Fairy Memory",
@@ -1262,7 +1262,7 @@ exports.BattleItems = {
 		num: 553,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Fighting-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Fighting-type attack will have 1.5x power. Single use."
 	},
 	fightingmemory: {
 		name: "Fighting Memory",
@@ -1298,7 +1298,7 @@ exports.BattleItems = {
 		},
 		num: 159,
 		gen: 3,
-		desc: "Restores 1/3 max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use."
+		desc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -Atk Nature. Single use."
 	},
 	firegem: {
 		name: "Fire Gem",
@@ -1307,7 +1307,7 @@ exports.BattleItems = {
 		num: 548,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Fire-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Fire-type attack will have 1.5x power. Single use."
 	},
 	firememory: {
 		name: "Fire Memory",
@@ -1405,7 +1405,7 @@ exports.BattleItems = {
 		num: 556,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Flying-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Flying-type attack will have 1.5x power. Single use."
 	},
 	flyingmemory: {
 		name: "Flying Memory",
@@ -1602,7 +1602,7 @@ exports.BattleItems = {
 		num: 560,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Ghost-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Ghost-type attack will have 1.5x power. Single use."
 	},
 	ghostmemory: {
 		name: "Ghost Memory",
@@ -1656,7 +1656,7 @@ exports.BattleItems = {
 		num: 551,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Grass-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Grass-type attack will have 1.5x power. Single use."
 	},
 	grassmemory: {
 		name: "Grass Memory",
@@ -1755,7 +1755,7 @@ exports.BattleItems = {
 		num: 555,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Ground-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Ground-type attack will have 1.5x power. Single use."
 	},
 	groundmemory: {
 		name: "Ground Memory",
@@ -1907,7 +1907,7 @@ exports.BattleItems = {
 		},
 		num: 163,
 		gen: 3,
-		desc: "Restores 1/3 max HP at 1/4 max HP or less; confuses if -Def Nature. Single use."
+		desc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -Def Nature. Single use."
 	},
 	icegem: {
 		name: "Ice Gem",
@@ -1916,7 +1916,7 @@ exports.BattleItems = {
 		num: 552,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Ice-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Ice-type attack will have 1.5x power. Single use."
 	},
 	icememory: {
 		name: "Ice Memory",
@@ -2478,7 +2478,7 @@ exports.BattleItems = {
 		},
 		num: 161,
 		gen: 3,
-		desc: "Restores 1/3 max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use."
+		desc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -Spe Nature. Single use."
 	},
 	magostberry: {
 		name: "Magost Berry",
@@ -2855,7 +2855,7 @@ exports.BattleItems = {
 		isGem: true,
 		num: 564,
 		gen: 5,
-		desc: "Holder's first successful Normal-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Normal-type attack will have 1.5x power. Single use."
 	},
 	normaliumz: {
 		name: "Normalium Z",
@@ -3108,7 +3108,7 @@ exports.BattleItems = {
 		num: 554,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Poison-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Poison-type attack will have 1.5x power. Single use."
 	},
 	poisonmemory: {
 		name: "Poison Memory",
@@ -3290,7 +3290,7 @@ exports.BattleItems = {
 		num: 557,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Psychic-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Psychic-type attack will have 1.5x power. Single use."
 	},
 	psychicmemory: {
 		name: "Psychic Memory",
@@ -3539,7 +3539,7 @@ exports.BattleItems = {
 		num: 559,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Rock-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Rock-type attack will have 1.5x power. Single use."
 	},
 	rockincense: {
 		name: "Rock Incense",
@@ -4094,7 +4094,7 @@ exports.BattleItems = {
 		num: 563,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Steel-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Steel-type attack will have 1.5x power. Single use."
 	},
 	steelmemory: {
 		name: "Steel Memory",
@@ -5524,7 +5524,7 @@ exports.BattleItems = {
 		num: 549,
 		gen: 5,
 		isNonstandard: "Past",
-		desc: "Holder's first successful Water-type attack will have 1.3x power. Single use."
+		desc: "Holder's first successful Water-type attack will have 1.5x power. Single use."
 	},
 	watermemory: {
 		name: "Water Memory",
@@ -5657,7 +5657,7 @@ exports.BattleItems = {
 		},
 		num: 160,
 		gen: 3,
-		desc: "Restores 1/3 max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use."
+		desc: "Restores 1/2 max HP at 1/4 max HP or less; confuses if -SpA Nature. Single use."
 	},
 	wiseglasses: {
 		name: "Wise Glasses",
